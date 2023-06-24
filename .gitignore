@@ -1,0 +1,9 @@
+# Env variables
+.env
+!.env.example
+
+#Modules
+node_modules
+
+#Outdir
+dist
