@@ -5,7 +5,11 @@ export default async function (req: Request, res: Response) {
   const { id: guildId } = req.params
   const modules: typeof Modules = req.body
 
-  await Modules.findOneAndUpdate({ guildId }, modules, { upsert: true })
+  const data = await Modules.findOneAndUpdate(
+    { guildId },
+    { $set: modules },
+    { upsert: true, new: true }
+  )
 
-  return res.sendStatus(200)
+  return res.status(200).json(data)
 }
