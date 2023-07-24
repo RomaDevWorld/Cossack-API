@@ -8,8 +8,8 @@ import MongoStore from 'connect-mongo'
 import rateLimit from 'express-rate-limit'
 
 const limiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 20, // Limit each IP to 100 requests per "window"
+  windowMs: 60 * 1000,
+  max: 20,
   message: 'You are being rate limited',
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
@@ -17,6 +17,7 @@ const limiter = rateLimit({
 
 export const createApp = (): express.Express => {
   const app = express()
+  app.disable('x-powered-by')
 
   //cors
   app.use(cors({ origin: [`http://localhost:${process.env.PORT}`], credentials: true }))
