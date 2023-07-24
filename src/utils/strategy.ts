@@ -23,18 +23,22 @@ passport.deserializeUser(async (id: string, done) => {
 passport.use(
   new Strategy(
     {
-      clientID: process.env.DISCORD_CLIENT_ID!,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET!,
-      callbackURL: process.env.DISCORD_CALLBACK!,
+      clientID: process.env.DISCORD_CLIENT_ID as string,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET as string,
+      callbackURL: process.env.DISCORD_CALLBACK as string,
       scope: ['identify', 'guilds'],
     },
     async (accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback) => {
       try {
-        const user = await User.findOneAndUpdate({ discordId: profile.id }, { accessToken, refreshToken }, { new: true, upsert: true })
+        const user = await User.findOneAndUpdate(
+          { discordId: profile.id },
+          { accessToken, refreshToken },
+          { new: true, upsert: true }
+        )
         return done(null, user)
       } catch (err) {
         console.error(err)
-        return done(err as any, false)
+        return done(err as Error, false)
       }
     }
   )

@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 3000
 try {
   const app = createApp()
   app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
     console.log(`Express is running on http://localhost:${PORT}`)
   })
 } catch (err) {
@@ -26,6 +27,7 @@ try {
 try {
   client.login(process.env.DISCORD_TOKEN)
   client.once('ready', (client) => {
+    // eslint-disable-next-line no-console
     console.log(`Websocket connected: ${client.user.tag}`)
   })
 } catch (err) {
