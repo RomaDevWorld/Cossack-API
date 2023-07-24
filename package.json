@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "start": "./dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +21,9 @@
     "@typescript-eslint/parser": "^5.60.0",
     "dotenv": "^16.0.3",
     "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
     "nodemon": "^3.0.1",
+    "prettier": "^3.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },
