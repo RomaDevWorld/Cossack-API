@@ -1,14 +1,13 @@
 import { Request, Response } from 'express'
-import Logchannel from '../../schemas/Modules'
-import { ModulesI } from '../../../types'
+import Modules from '../../schemas/Modules'
 
 export default async function (req: Request, res: Response) {
   const { id: guildId } = req.params
-  const modules: ModulesI = req.body
+  const modules: typeof Modules = req.body
 
   console.log(req.body)
 
-  await Logchannel.findOneAndUpdate({ guildId }, modules, { new: true, upsert: true })
+  await Modules.findOneAndUpdate({ guildId }, modules, { upsert: true })
 
   return res.sendStatus(200)
 }
