@@ -1,5 +1,13 @@
 import 'dotenv/config'
-if (!process.env.DB_HOST || !process.env.DB_NAME || !process.env.FRONTEND_URL || !process.env.DISCORD_TOKEN) throw new Error('Missing env variables')
+if (
+  !process.env.DB_HOST ||
+  !process.env.DB_NAME ||
+  !process.env.FRONTEND_URL ||
+  !process.env.DISCORD_TOKEN ||
+  !process.env.DISCORD_CLIENT_ID ||
+  !process.env.DISCORD_REDIRECT
+)
+  throw new Error('Missing one or more .env variables')
 
 import { createApp } from './utils/app'
 import client from './utils/client'
