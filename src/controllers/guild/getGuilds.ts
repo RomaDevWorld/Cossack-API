@@ -6,7 +6,7 @@ export default async function (req: Request, res: Response) {
   const user = req.user as UserI
   try {
     const guilds = await getMutualGuildsService(user.id)
-    res.send(guilds)
+    res.status(200).json(guilds)
   } catch (err) {
     console.error(err)
     res.status(500)
