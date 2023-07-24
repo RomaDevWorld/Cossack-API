@@ -1,7 +1,6 @@
 import 'dotenv/config'
 if (
-  !process.env.DB_HOST ||
-  !process.env.DB_NAME ||
+  !process.env.MONGOURL ||
   !process.env.FRONTEND_URL ||
   !process.env.DISCORD_TOKEN ||
   !process.env.DISCORD_CLIENT_ID ||
@@ -11,7 +10,7 @@ if (
 
 import { createApp } from './utils/app'
 import client from './utils/client'
-import './utils/db'
+import './utils/mongodb'
 
 const main = () => {
   const PORT = process.env.PORT || 3000

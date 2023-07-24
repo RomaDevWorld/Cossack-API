@@ -33,7 +33,7 @@ export const createApp = (): express.Express => {
       resave: false,
       saveUninitialized: false,
       cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 },
-      store: MongoStore.create({ mongoUrl: `mongodb://${process.env.DB_HOST}` }),
+      store: MongoStore.create({ mongoUrl: process.env.MONGOURL }),
     })
   )
 
