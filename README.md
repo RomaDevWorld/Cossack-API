@@ -78,5 +78,26 @@ src/
   </li>
 </ol>
 
-### Docker
-Comming soon.
+### Using Docker
+
+<ol>
+  <li>Install <a href="https://docs.docker.com/engine/install/">Docker engine</a> on your system</li>
+  <li>
+    Run command below after spicifying with all the env variables <code>-e</code> (Mentioned previously):
+  </li>
+</ol>
+
+```
+sudo docker run \
+--name api \
+--restart unless-stopped \
+-p 80:3000
+-e DISCORD_TOKEN='Your discord bot token' \
+-e DISCORD_CLIENT_ID='Your discord bot client id' \
+-e DISCORD_CLIENT_SECRET="Discord application client secret" \
+-e DISCORD_REDIRECT="Auth redirect url" \
+-e SECRET="String for encription" \
+-e FRONTEND_URL="URL to frontend UI" \
+-e MONGOURL="MongoDB connection string" \
+romadevworld/cossackapi:latest
+```
