@@ -91,7 +91,7 @@ src/
 sudo docker run \
 --name api \
 --restart unless-stopped \
--p 80:3000
+-p 80:3000 \
 -e DISCORD_TOKEN='Your discord bot token' \
 -e DISCORD_CLIENT_ID='Your discord bot client id' \
 -e DISCORD_CLIENT_SECRET="Discord application client secret" \
