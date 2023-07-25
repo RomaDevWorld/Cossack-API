@@ -16,7 +16,7 @@ passport.deserializeUser(async (id: string, done) => {
     return user ? done(null, user as UserI) : done(null, false)
   } catch (err) {
     console.error(err)
-    return done(err, false)
+    return done(null, false)
   }
 })
 
@@ -38,7 +38,7 @@ passport.use(
         return done(null, user as UserI)
       } catch (err) {
         console.error(err)
-        return done(err as Error, undefined)
+        return done(null, undefined)
       }
     }
   )
