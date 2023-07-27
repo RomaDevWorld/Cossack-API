@@ -7,7 +7,7 @@ export default async function (req: Request, res: Response) {
     const guild = await client.guilds.fetch(id)
     const channels = await guild.channels.fetch()
 
-    res.status(200).send(channels)
+    res.status(200).json(channels)
 
     return channels
   } catch (err) {

@@ -7,7 +7,7 @@ export default async function (req: Request, res: Response) {
     const guild = await client.guilds.fetch(id)
     const roles = await guild.roles.fetch()
 
-    return res.status(200).send(roles)
+    return res.status(200).json(roles)
   } catch (err) {
     console.error(err)
     res.status(500)
