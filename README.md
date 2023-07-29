@@ -29,6 +29,30 @@ src/
     └── guild/
 ```
 
+## Router endpoints explanation
+
+`GET: /` - global router (can be configured inside `/src/utils/app.ts`)
+
+`GET: /auth/discord` - will execute the discord authentication passport and redirect to the bot authorization page.
+
+`GET: /auth/redirect` - auth redirect URL, that user will be redirected to after authorizing the bot
+
+`GET: /guilds/` - if the user is authorized, it will return a JSON object with all the user's guilds.
+
+`GET: /guilds/[guildId]` - will return a JSON object with general information about the given guild.
+
+`GET: /guilds/[guildId]/channel` - will return a JSON object with all the channels in a given guild.
+
+`GET: /guilds/[guildId]/roles` - will return a JSON object with all the roles in a given guild.
+
+`GET: /guilds/[guildId]/members` - will return a JSON object with all the members in a given guild.
+
+`GET: /guilds/[guildId]/admin/modules` - will query the database for guild modules `(/src/schemas/Modules.ts)` and return a JSON object with the result.
+
+`POST: /guilds/[guildId]/admin/modules` - takes a data `(mongoose update query e.g { log.channel: 101010101010101 })`, updates the values in the database, and returns a JSON object with updated values.
+
+
+
 ## Understanding env variables
 
 `PORT` - Port on what application will run
