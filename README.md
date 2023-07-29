@@ -1,8 +1,11 @@
 # Cossack-API
-Backend Node.js application built with typescript for communicating between user, MongoDB and Discord API, managing authorization with discord passport 
 
-**This application is still under develompent. Stay tuned for new updates!**
+Backend Node.js application built with typescript for communicating between user, MongoDB and Discord API, managing authorization with discord passport
+
+**This application is still under development. Stay tuned for new updates!**
+
 ## Folder structure explanation
+
 ```
 .env.example – Example file for environment variables required to run the app
 types.d.ts - Typescript type declarations
@@ -51,8 +54,6 @@ src/
 
 `POST: /guilds/[guildId]/admin/modules` - takes a data `(mongoose update query e.g { log.channel: 101010101010101 })`, updates the values in the database, and returns a JSON object with updated values.
 
-
-
 ## Understanding env variables
 
 `PORT` - Port on what application will run
@@ -71,10 +72,12 @@ src/
 
 `DISCORD_CLIENT_SECRET` - Discord application secret (OAuth2 tab)
 
-`DISCORD_REDIRECT` - Authorization redirect URL (Have to be configured in OAuth2 tab, schould look something like `http://localhost:3000/auth/discord/redirect`)
+`DISCORD_REDIRECT` - Authorization redirect URL (Have to be configured in OAuth2 tab, should look something like `http://localhost:3000/auth/discord/redirect`)
 
 ## How to run?
+
 ### Locally with NodeJS
+
 <ol>
   <li>
     <a href="https://nodejs.org/en">Install NodeJS runtime</a>
@@ -107,7 +110,7 @@ src/
 <ol>
   <li>Install <a href="https://docs.docker.com/engine/install/">Docker engine</a> on your system</li>
   <li>
-    Run command below after spicifying with all the env variables <code>-e</code> (Mentioned previously):
+    Run command below after specifying with all the env variables <code>-e</code> (Mentioned previously):
   </li>
 </ol>
 
@@ -120,7 +123,7 @@ sudo docker run \
 -e DISCORD_CLIENT_ID='Your discord bot client id' \
 -e DISCORD_CLIENT_SECRET="Discord application client secret" \
 -e DISCORD_REDIRECT="Auth redirect url" \
--e SECRET="String for encription" \
+-e SECRET="String for encryption" \
 -e FRONTEND_URL="URL to frontend UI" \
 -e MONGOURL="MongoDB connection string" \
 romadevworld/cossackapi:latest
