@@ -40,6 +40,8 @@ src/
 
 `GET: /auth/redirect` - auth redirect URL, that user will be redirected to after authorizing the bot
 
+`GET: /auth/user` - return information about current logged user
+
 `GET: /guilds/` - if the user is authorized, it will return a JSON object with all the user's guilds.
 
 `GET: /guilds/[guildId]` - will return a JSON object with general information about the given guild.
