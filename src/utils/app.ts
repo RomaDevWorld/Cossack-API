@@ -20,7 +20,12 @@ export const createApp = (): express.Express => {
   app.disable('x-powered-by')
 
   //cors
-  app.use(cors({ origin: [`http://localhost:${process.env.PORT}`], credentials: true }))
+  app.use(
+    cors({
+      origin: [`http://localhost:${process.env.PORT}`, process.env.FRONTEND_URL as string],
+      credentials: true,
+    })
+  )
 
   //middlewares
   app.use(express.json())
@@ -43,7 +48,7 @@ export const createApp = (): express.Express => {
   app.use(passport.session())
 
   // //delay
-  // app.use((req, res, next) => setTimeout(() => next(), 1000));
+  app.use((req, res, next) => setTimeout(() => next(), 500))
 
   //global route
   app.use('/', router)
