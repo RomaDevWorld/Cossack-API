@@ -12,7 +12,7 @@ const router = Router()
 
 router.get('/', getGuilds)
 
-router.get('/:id', getOneGuild)
+router.get('/:id', isGuildAdmin, getOneGuild)
 
 router.get('/:id/channels', isGuildAdmin, getGuildChannels)
 router.get('/:id/roles', isGuildAdmin, getGuildRoles)
