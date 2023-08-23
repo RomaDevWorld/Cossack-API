@@ -8,7 +8,7 @@ import MongoStore from 'connect-mongo'
 import rateLimit from 'express-rate-limit'
 
 const limiter = rateLimit({
-  windowMs: 15 * 1000,
+  windowMs: 5 * 1000,
   max: 10,
   message: 'You are being rate limited',
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
