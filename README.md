@@ -66,6 +66,10 @@ src/
 
 `SECRET` - String used to encrypt user's sessions (Create some with `openssl rand -base64 32` or just type random characters)
 
+`RATE_LIMIT_TIME` - Window of time in which user can make the requests
+
+`RATE_LIMIT_MAX` - Max requests per window time
+
 **Next variables requires discord bot application. You can create one here: https://discord.com/developers/applications**
 
 `DISCORD_TOKEN` - Discord application token from (Bot tab)
