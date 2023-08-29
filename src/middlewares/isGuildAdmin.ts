@@ -10,7 +10,9 @@ const isGuildAdmin = async (req: Request, res: Response, next: NextFunction) => 
   const guild = client.guilds.cache.get(req.params.id)
   if (!guild) return res.sendStatus(404)
 
-  const member = guild.members.cache.get(user.id)
+  const member = await guild.members
+    .fetch(user.discordId)
+    .catch((err) => console.error(`Error while fetching guild member: ${err}`))
   if (!member || !member.permissions.has(PermissionsBitField.Flags.ManageGuild))
     return res.sendStatus(403)
 
