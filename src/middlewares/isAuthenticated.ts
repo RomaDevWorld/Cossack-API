@@ -13,7 +13,9 @@ const isAuthenticated = async (req: Request, res: Response, next: NextFunction) 
       },
     })
 
-    response.ok ? next() : res.sendStatus(401)
+    response.ok
+      ? next()
+      : res.status(403).json({ message: `Error from Discord API: ${response.statusText}` })
   } catch (error) {
     console.error(error)
     res.sendStatus(500)
