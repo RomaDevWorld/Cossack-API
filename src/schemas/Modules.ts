@@ -59,6 +59,32 @@ const ModulesSchema = new Schema({
       },
     },
   },
+  leveling: {
+    status: { type: SchemaTypes.Boolean, default: false },
+    minXp: {
+      type: SchemaTypes.Number,
+      default: 5,
+    },
+    maxXp: {
+      type: SchemaTypes.Number,
+      default: 15,
+    },
+    cooldown: {
+      type: SchemaTypes.Number,
+      default: 15 * 1000, // 15 seconds
+    },
+    notifications: {
+      onLvlUp: { type: SchemaTypes.Boolean, default: false },
+    },
+    ignoredChannels: {
+      type: [SchemaTypes.String],
+      default: [],
+    },
+    ignoredRoles: {
+      type: [SchemaTypes.String],
+      default: [],
+    },
+  },
   tickets: [
     {
       channelId: {
@@ -68,6 +94,10 @@ const ModulesSchema = new Schema({
         type: SchemaTypes.String,
       },
       allowedRoles: [String],
+      prefix: {
+        type: SchemaTypes.String,
+        required: true,
+      },
     },
   ],
 })

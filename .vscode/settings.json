@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["linebreak", "Logchannel", "middlewares", "MONGOURL", "resave"],
+  "cSpell.words": ["autorole", "linebreak", "Logchannel", "middlewares", "MONGOURL", "resave"],
   "cSpell.ignorePaths": [
     "package-lock.json",
     "node_modules",

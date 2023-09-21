@@ -48,7 +48,7 @@ export const createApp = (): express.Express => {
   app.use(passport.session())
 
   // //delay
-  app.use((req, res, next) => setTimeout(() => next(), 500))
+  // app.use((req, res, next) => setTimeout(() => next(), 500))
 
   //global route
   app.use('/', router)
