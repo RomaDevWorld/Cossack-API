@@ -1,4 +1,4 @@
-import client from "../../utils/client"
-export async function getBotGuildsService() {
-  return await client.guilds.fetch()
+import client from '../../utils/client'
+export function getBotGuildsService() {
+  return client.guilds.cache
 }

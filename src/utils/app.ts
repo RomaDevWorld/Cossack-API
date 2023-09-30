@@ -8,8 +8,8 @@ import MongoStore from 'connect-mongo'
 import rateLimit from 'express-rate-limit'
 
 const limiter = rateLimit({
-  windowMs: 5 * 1000,
-  max: 10,
+  windowMs: process.env.RATE_LIMIT_TIME ? parseInt(process.env.RATE_LIMIT_TIME) : 5000,
+  max: process.env.RATE_LIMIT_MAX ? parseInt(process.env.RATE_LIMIT_MAX) : 5,
   message: 'You are being rate limited',
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
@@ -48,10 +48,10 @@ export const createApp = (): express.Express => {
   app.use(passport.session())
 
   // //delay
-  app.use((req, res, next) => setTimeout(() => next(), 500))
+  // app.use((req, res, next) => setTimeout(() => next(), 500))
 
   //global route
-  app.use('/', router)
+  app.use(process.env.ROUTE as string, router)
 
   return app
 }

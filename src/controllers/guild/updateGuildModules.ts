@@ -6,12 +6,8 @@ export default async function (req: Request, res: Response) {
   const modules: typeof Modules = req.body
 
   try {
-    const data = await Modules.findOneAndUpdate(
-      { guildId },
-      { $set: modules },
-      { upsert: true, new: true }
-    )
-    return res.status(200).json(data)
+    await Modules.findOneAndUpdate({ guildId }, { $set: modules }, { upsert: true, new: true })
+    return res.sendStatus(200)
   } catch (err) {
     return res.sendStatus(400)
   }
