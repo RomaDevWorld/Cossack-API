@@ -51,7 +51,7 @@ export const createApp = (): express.Express => {
   // app.use((req, res, next) => setTimeout(() => next(), 500))
 
   //global route
-  app.use(process.env.ROUTE as string, router)
+  app.use((process.env.ROUTE as string) || '/', router)
 
   return app
 }
