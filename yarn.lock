@@ -1500,7 +1500,6 @@ mongodb@^5.8.0:
     socks "^2.7.1"
   optionalDependencies:
     "@mongodb-js/saslprep" "^1.1.0"
-
 mongoose@^7.5.2:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.6.0.tgz#3037b754ccdf168385e52d4bcabeb7f5c3b17a5f"
