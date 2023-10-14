@@ -27,6 +27,14 @@ const ModulesSchema = new Schema({
       default: null,
     },
     types: logTypes,
+    ignoredChannels: {
+      type: [SchemaTypes.String],
+      default: [],
+    },
+    ignoredRoles: {
+      type: [SchemaTypes.String],
+      default: [],
+    },
   },
   lobby: {
     channel: {
