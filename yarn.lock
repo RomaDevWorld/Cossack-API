@@ -1478,7 +1478,8 @@ mongodb-connection-string-url@^2.6.0:
   dependencies:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
-mongodb@5.9.0:
+
+mongodb@5.9.0, mongodb@^5.9.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.9.0.tgz#5a22065fa8cfaf1d58bf2e3c451cd2c4bfa983a2"
   integrity sha512-g+GCMHN1CoRUA+wb1Agv0TI4YTSiWr42B5ulkiAfLLHitGK1R+PkSAf3Lr5rPZwi/3F04LiaZEW0Kxro9Fi2TA==
@@ -1488,6 +1489,7 @@ mongodb@5.9.0:
     socks "^2.7.1"
   optionalDependencies:
     "@mongodb-js/saslprep" "^1.1.0"
+
 mongoose@^7.5.2:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.6.0.tgz#3037b754ccdf168385e52d4bcabeb7f5c3b17a5f"
