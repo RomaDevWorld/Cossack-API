@@ -11,6 +11,7 @@ import getGuildWarns from '../../controllers/guild/getGuildWarns'
 import getGuildTickets from '../../controllers/guild/getGuildTickets'
 import getGuildRanks from '../../controllers/guild/getGuildRanks'
 import updateGuildTicket from '../../controllers/guild/updateGuildTicket'
+import updateGuildRanks from '../../controllers/guild/updateGuildRanks'
 
 const router = Router()
 
@@ -27,9 +28,10 @@ router.get('/:id/admin/modules/', isGuildAdmin, getGuildModules)
 router.post('/:id/admin/modules/', isGuildAdmin, updateGuildModules)
 //Tickets
 router.get('/:id/admin/modules/tickets/', isGuildAdmin, getGuildTickets)
-router.post('/:id/admin/modules/tickets/', isGuildAdmin, updateGuildTicket)
+router.post('/:id/admin/modules/tickets/:ticketId/', isGuildAdmin, updateGuildTicket)
 //Ranks
 router.get('/:id/admin/modules/ranks/', isGuildAdmin, getGuildRanks)
+router.post('/:id/admin/modules/ranks/', isGuildAdmin, updateGuildRanks)
 
 //Warns
 router.get('/:id/admin/warns/', isGuildAdmin, getGuildWarns)

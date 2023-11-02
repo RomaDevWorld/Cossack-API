@@ -42,25 +42,35 @@ src/
 
 `GET: /auth/user` - return information about current logged user
 
-`GET: /guilds/` - if the user is authorized, it will return a JSON object with all the user's guilds.
+`GET: /guilds/` - if the user is authorized, returns a JSON object with all the user's guilds.
 
-`GET: /guilds/[guildId]` - will return a JSON object with general information about the given guild.
+`GET: /guilds/[guildId]` - returns a JSON object with general information about the given guild.
 
-`GET: /guilds/[guildId]/channel` - will return a JSON object with all the channels in a given guild.
+`GET: /guilds/[guildId]/channel` - returns a JSON object with all the channels in a given guild.
 
-`GET: /guilds/[guildId]/roles` - will return a JSON object with all the roles in a given guild.
+`GET: /guilds/[guildId]/roles` - returns a JSON object with all the roles in a given guild.
 
-`GET: /guilds/[guildId]/members` - will return a JSON object with all the members in a given guild.
+`GET: /guilds/[guildId]/members` - returns a JSON object with all the members in a given guild.
 
 `GET: /guilds/[guildId]/admin/modules` - will query the database for guild modules `(/src/schemas/Modules.ts)` and return a JSON object with the result.
 
-`POST: /guilds/[guildId]/admin/modules` - takes a data `(mongoose update query e.g { log.channel: 101010101010101 })`, updates the values in the database, and returns a JSON object with updated values.
+`POST: /guilds/[guildId]/admin/modules` - takes a data `(mongoose update query e.g { log.channel: 101010101010101 })`, updates the values in the database.
+
+`GET: /guilds/[guildId]/admin/modules/tickets` - queries the database to find all the tickets with specified guildId, returns a JSON object with the result.
+
+`POST: /guilds/[guildId]/admin/modules/tickets/[ticketId]` - takes a data (categoryId, prefix, etc.), queries the database with specified ticketId, updates the values.
+
+`GET: /guilds/[guildId]/admin/modules/ranks` - queries the database to find all the rankings with specified guildId, returns a JSON object with the result.
+
+`POST: /guilds/[guildId]/admin/modules/ranks` - takes a data (roleId, lvl), queries the database with specified guildId and roleId, updates the values.
 
 ## Understanding env variables
 
 `PORT` - Port on what application will run
 
-`FRONTEND_URL` - Publicly accessible url to Frontend UI (After the authorization it will redirect the user to it)
+`ROUTE` - Global route. `/` by default, `/api` recommended
+
+`FRONTEND_URL` - Publicly accessible url to Frontend UI (After the authorization, it will redirect the user to it)
 
 `MONGOURL` - Full MongoDB connection string (starts with `mongodb://`)
 
@@ -70,7 +80,7 @@ src/
 
 `RATE_LIMIT_MAX` - Max requests per window time
 
-**Next variables requires discord bot application. You can create one here: https://discord.com/developers/applications**
+**Next variables require discord bot application. You can create one here: https://discord.com/developers/applications**
 
 `DISCORD_TOKEN` - Discord application token from (Bot tab)
 
@@ -82,11 +92,11 @@ src/
 
 ## How to run?
 
-### Locally with NodeJS
+### Locally with Node.js
 
 <ol>
   <li>
-    <a href="https://nodejs.org/en">Install NodeJS runtime</a>
+    <a href="https://nodejs.org/en">Install Node.js runtime</a>
   </li>
   <li>
     <a>Install Yarn <code>npm i -g yarn</code></a>
@@ -132,5 +142,6 @@ sudo docker run \
 -e SECRET="String for encryption" \
 -e FRONTEND_URL="URL to frontend UI" \
 -e MONGOURL="MongoDB connection string" \
+-e ROUTE="/api" \
 romadevworld/cossackapi:latest
 ```
