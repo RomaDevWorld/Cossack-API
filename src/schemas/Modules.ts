@@ -12,6 +12,7 @@ export const logTypes = {
   guildBanRemove: { type: SchemaTypes.Boolean, default: false },
   guildBanAdd: { type: SchemaTypes.Boolean, default: false },
   guildMemberReport: { type: SchemaTypes.Boolean, default: false },
+  guildMemberWarn: { type: SchemaTypes.Boolean, default: false },
 }
 
 const ModulesSchema = new Schema({
@@ -26,7 +27,6 @@ const ModulesSchema = new Schema({
       unique: true,
       default: null,
     },
-    types: logTypes,
     ignoredChannels: {
       type: [SchemaTypes.String],
       default: [],
@@ -35,6 +35,7 @@ const ModulesSchema = new Schema({
       type: [SchemaTypes.String],
       default: [],
     },
+    types: logTypes,
   },
   lobby: {
     channel: {
@@ -108,21 +109,6 @@ const ModulesSchema = new Schema({
       default: 3,
     },
   },
-  tickets: [
-    {
-      channelId: {
-        type: SchemaTypes.String,
-      },
-      messageId: {
-        type: SchemaTypes.String,
-      },
-      allowedRoles: [String],
-      prefix: {
-        type: SchemaTypes.String,
-        required: true,
-      },
-    },
-  ],
 })
 
 export default model('modules', ModulesSchema)
